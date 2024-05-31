@@ -47,6 +47,14 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
+  # Launcher Icon
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "images/mri.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
