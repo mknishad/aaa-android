@@ -1,4 +1,4 @@
-package com.ascenttek.aaa.aaa
+package com.ascenttek.aaa
 
 import io.flutter.embedding.android.FlutterActivity
 
