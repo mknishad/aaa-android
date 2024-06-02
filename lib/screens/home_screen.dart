@@ -1,3 +1,4 @@
+import 'package:aaa/screens/report_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,7 +66,15 @@ class ReportList extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
           child: Card(
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ReportDetailsScreen(), // Replace with your second screen
+                  ),
+                );
+              },
               splashColor: Colors.grey[300],
               splashFactory: InkRipple.splashFactory,
               child: ListTile(
@@ -89,7 +98,7 @@ class ReportList extends StatelessWidget {
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
                       'AAA',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white, fontSize: 12.0),
                     ),
                   ),
                 ),

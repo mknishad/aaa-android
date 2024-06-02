@@ -97,20 +97,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         (route) => false,
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      /*backgroundColor: Colors.blue,
+                    /*style: ElevatedButton.styleFrom(
+                      */ /*backgroundColor: Colors.blue,
                       padding:
                           EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                      textStyle: TextStyle(fontSize: 18),*/
+                      textStyle: TextStyle(fontSize: 18),*/ /*
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                    ),
+                    ),*/
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
                         'Login',
-                        style: TextStyle(fontSize: 16.0, color: Colors.white),
+                        /*style: TextStyle(fontSize: 16.0, color: Colors.white),*/
                       ),
                     ),
                   ),
