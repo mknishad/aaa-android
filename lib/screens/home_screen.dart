@@ -90,15 +90,16 @@ class ReportList extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.deepOrange,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(4.0),
+                      Radius.circular(8.0),
                     ),
                   ),
                   //color: Colors.deepOrange,
                   child: Padding(
-                    padding: const EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 4.0),
                     child: Text(
                       'AAA',
-                      style: TextStyle(color: Colors.white, fontSize: 12.0),
+                      style: TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                   ),
                 ),

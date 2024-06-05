@@ -27,62 +27,48 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
         },
       ),
     )
-    ..loadRequest(Uri.parse('https://flutter.dev'));
+    ..loadFlutterAsset('assets/index.html');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Report')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              ListTile(
-                title: Text('ID: 10000000'),
-                subtitle: Row(
-                  children: [
-                    Text('Age: 55'),
-                    SizedBox(width: 16.0),
-                    Text('Gender: Male'),
-                  ],
-                ),
-                trailing: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(4.0),
-                    ),
-                  ),
-                  //color: Colors.deepOrange,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Text(
-                      'AAA',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          ListTile(
+            title: Text('ID: 10000000'),
+            subtitle: Row(
+              children: [
+                Text('Age: 55'),
+                SizedBox(width: 16.0),
+                Text('Gender: Male'),
+              ],
+            ),
+            trailing: Container(
+              decoration: BoxDecoration(
+                color: Colors.deepOrange,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8.0),
                 ),
               ),
-              SizedBox(
-                height: 32.0,
+              //color: Colors.deepOrange,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                child: Text(
+                  'AAA',
+                  style: TextStyle(fontSize: 10.0, color: Colors.white),
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(onPressed: () {}, child: Text('One')),
-                  ElevatedButton(onPressed: () {}, child: Text('Two')),
-                ],
-              ),
-              Container(
-                height: 400.0,
-                child: WebViewWidget(controller: _webViewController),
-              ),
-            ],
+            ),
           ),
-        ),
+          Container(
+            height: 400.0,
+            child: WebViewWidget(controller: _webViewController),
+          ),
+        ],
       ),
     );
   }
