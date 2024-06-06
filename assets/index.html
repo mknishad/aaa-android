@@ -9,23 +9,27 @@
     	<meta name="apple-mobile-web-app-capable" content="yes">
     	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    	<link rel="stylesheet" type="text/css" href="papaya.css?build=1468" />
-    	<script type="text/javascript" src="papaya.js?build=1468"></script>
+    	<link rel="stylesheet" type="text/css" href="papaya.css?build=1470" />
+    	<script type="text/javascript" src="papaya.js?build=1470"></script>
     
     	<title>Papaya Viewer</title>
     
     	<script type="text/javascript">
-var params = {
-    "images": ["K10", "K10_pweir_v2_seg"],
-    "kioskMode": true
-};
-</script>
-
+		var params = {
+			"images": ["K10", "K10_pweir_v2_seg"],
+			"fullScreenPadding": true,
+			"kioskMode": true,
+			"noNewFiles": true,
+			"K10": {"lut": "Spectrum"},
+			"K10_pweir_v2_seg": {"lut": "Overlay (Positives)"}
+		};
+		</script>
 	</head>
 
 	<body>
-		<h3 style="text-align:center;font-family:sans-serif">CT Viewer</h3>
-		<div style="width:55%;margin:auto;text-align:center;"><div class="papaya" data-params="params"></div></div>
+		<div style="width:140vh;;margin:auto;text-align:center;">
+			<div class="papaya" data-params="params"></div>
+		</div>
 		
 	</body>
 </html>
