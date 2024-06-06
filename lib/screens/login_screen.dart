@@ -80,9 +80,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   SizedBox(height: 32),
-
                   // Login Button
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightBlueAccent,
+                    ),
                     onPressed: () {
                       /*if (_formKey.currentState!.validate()) {
                         // Process login
@@ -106,12 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),*/
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        'Login',
-                        /*style: TextStyle(fontSize: 16.0, color: Colors.white),*/
-                      ),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(fontSize: 16.0, color: Colors.white),
                     ),
                   ),
                   //SizedBox(height: 16),
