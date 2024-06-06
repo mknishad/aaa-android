@@ -7,27 +7,44 @@ class ReportDetailsScreen extends StatefulWidget {
 }
 
 class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
-  final _webViewController = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(const Color(0x000FF000))
-    ..setNavigationDelegate(
-      NavigationDelegate(
-        onProgress: (int progress) {
-          // Update loading bar.
-        },
-        onPageStarted: (String url) {},
-        onPageFinished: (String url) {},
-        onHttpError: (HttpResponseError error) {},
-        onWebResourceError: (WebResourceError error) {},
-        onNavigationRequest: (NavigationRequest request) {
-          if (request.url.startsWith('https://www.youtube.com/')) {
-            return NavigationDecision.prevent;
-          }
-          return NavigationDecision.navigate;
-        },
-      ),
-    )
-    ..loadFlutterAsset('assets/index.html');
+  late final WebViewController _webViewController;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _webViewController = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x000FF000))
+      ..enableZoom(true)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) {
+            // Update loading bar.
+          },
+          onPageStarted: (String url) {
+            //showProgressDialog(context);
+          },
+          onPageFinished: (String url) {
+            //Navigator.pop(context);
+            setState(() {
+              isLoading = false;
+            });
+          },
+          onHttpError: (HttpResponseError error) {},
+          onWebResourceError: (WebResourceError error) {},
+          onNavigationRequest: (NavigationRequest request) {
+            if (request.url.startsWith('https://www.youtube.com/')) {
+              return NavigationDecision.prevent;
+            }
+            return NavigationDecision.navigate;
+          },
+        ),
+      )
+      ..loadFlutterAsset('assets/index.html');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +52,6 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
       appBar: AppBar(title: Text('Report')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           ListTile(
             title: Text('ID: 10000000'),
@@ -64,12 +80,53 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
               ),
             ),
           ),
-          Container(
-            height: 400.0,
-            child: WebViewWidget(controller: _webViewController),
+          Stack(
+            children: [
+              Container(
+                height: 400.0,
+                child: WebViewWidget(controller: _webViewController),
+              ),
+              isLoading
+                  ? Center(
+                      child: Padding(
+                      padding: const EdgeInsets.only(top: 100.0),
+                      child: CircularProgressIndicator(),
+                    ))
+                  : Stack(),
+            ],
           ),
         ],
       ),
     );
   }
+}
+
+void showProgressDialog(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    content: Padding(
+      padding: EdgeInsets.only(top: 8.0),
+      child: Row(
+        children: [
+          CircularProgressIndicator(),
+          Container(
+            margin: EdgeInsets.only(left: 24.0),
+            child: Text(
+              "Loading...",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+  showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
