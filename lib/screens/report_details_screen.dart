@@ -80,20 +80,17 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
               ),
             ),
           ),
-          Stack(
-            children: [
-              Container(
-                height: 400.0,
-                child: WebViewWidget(controller: _webViewController),
-              ),
-              isLoading
-                  ? Center(
-                      child: Padding(
-                      padding: const EdgeInsets.only(top: 100.0),
-                      child: CircularProgressIndicator(),
-                    ))
-                  : Stack(),
-            ],
+          Expanded(
+            child: Stack(
+              children: [
+                Container(
+                  child: WebViewWidget(controller: _webViewController),
+                ),
+                isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : Stack(),
+              ],
+            ),
           ),
         ],
       ),
