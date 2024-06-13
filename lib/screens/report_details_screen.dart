@@ -82,12 +82,17 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
           ),
           Expanded(
             child: Stack(
+              alignment: Alignment.topCenter,
               children: [
                 Container(
                   child: WebViewWidget(controller: _webViewController),
+                  //height: 350.0,
                 ),
                 isLoading
-                    ? Center(child: CircularProgressIndicator())
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 150.0),
+                        child: CircularProgressIndicator(),
+                      )
                     : Stack(),
               ],
             ),
