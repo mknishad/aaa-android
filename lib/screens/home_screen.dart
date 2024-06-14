@@ -60,6 +60,7 @@ class ReportList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      itemCount: 100,
       padding: EdgeInsets.symmetric(vertical: 8.0),
       itemBuilder: (context, index) {
         return Container(
@@ -78,10 +79,10 @@ class ReportList extends StatelessWidget {
               splashColor: Colors.grey[300],
               splashFactory: InkRipple.splashFactory,
               child: ListTile(
-                title: Text('ID: ${index + 10000000}'),
+                title: Text('Patient ID: ${index + 8029643657160423794}'),
                 subtitle: Row(
                   children: [
-                    Text('Age: 55'),
+                    Text('Age: 54'),
                     SizedBox(width: 16.0),
                     Text('Gender: Male'),
                   ],
@@ -108,7 +109,6 @@ class ReportList extends StatelessWidget {
           ),
         );
       },
-      itemCount: 100,
     );
   }
 }

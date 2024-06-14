@@ -54,7 +54,7 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           ListTile(
-            title: Text('ID: 10000000'),
+            title: Text('Patient ID: 8029643657160423794'),
             subtitle: Row(
               children: [
                 Text('Age: 55'),
@@ -80,13 +80,62 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Long Diameter: '),
+                    Text('Short Diameter: '),
+                    Text('Cross Section Area: '),
+                    Text('Slice Index: '),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '53.46 mm',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepOrange,
+                        ),
+                      ),
+                      Text(
+                        '46.95 mm',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepOrange,
+                        ),
+                      ),
+                      Text(
+                        '1823.56 mm2',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '74',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
                 Container(
                   child: WebViewWidget(controller: _webViewController),
-                  //height: 350.0,
                 ),
                 isLoading
                     ? Padding(
