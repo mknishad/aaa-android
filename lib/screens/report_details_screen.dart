@@ -43,7 +43,8 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
           },
         ),
       )
-      ..loadFlutterAsset('assets/index.html');
+      //..loadFlutterAsset('assets/index.html');
+      ..loadRequest(Uri.parse('https://aorta-mobile.web.app/'));
   }
 
   @override
@@ -57,9 +58,9 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
             title: Text('Patient ID: 8029643657160423794'),
             subtitle: Row(
               children: [
-                Text('Age: 55'),
+                Text('Age: 54'),
                 SizedBox(width: 16.0),
-                Text('Gender: Male'),
+                Text('Gender: Unknown'),
               ],
             ),
             trailing: Container(

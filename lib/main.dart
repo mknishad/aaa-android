@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlueAccent),
 
-        //useMaterial3: true,
+        useMaterial3: true,
       ),
       /*darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

@@ -84,7 +84,7 @@ class ReportList extends StatelessWidget {
                   children: [
                     Text('Age: 54'),
                     SizedBox(width: 16.0),
-                    Text('Gender: Male'),
+                    Text('Gender: Unknown'),
                   ],
                 ),
                 trailing: Container(
