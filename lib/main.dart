@@ -29,8 +29,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-              backgroundColor: WidgetStateProperty.all(Colors.indigo),
-              foregroundColor: WidgetStateProperty.all(Colors.white)),
+            backgroundColor: WidgetStateProperty.all(Colors.indigo),
+            //foregroundColor: WidgetStateProperty.all(Colors.white),
+          ),
         ),
       ),
       home: const LoginScreen(),

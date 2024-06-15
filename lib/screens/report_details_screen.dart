@@ -51,79 +51,191 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Report')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            title: const Text('Patient ID: 8029643657160423794'),
-            subtitle: const Row(
-              children: [
-                Text('Age: 54'),
-                SizedBox(width: 16.0),
-                Text('Gender: Male'),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Report'),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: 'CT Scan'),
+              Tab(text: 'Measurements'),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                ListTile(
+                  title: const Text('Patient ID: 8029643657160423794'),
+                  subtitle: const Row(
+                    children: [
+                      Text('Age: 54'),
+                      SizedBox(width: 16.0),
+                      Text('Gender: Male'),
+                    ],
+                  ),
+                  trailing: Container(
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 154, 43, 16),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8.0),
+                      ),
+                    ),
+                    //color: Colors.deepOrange,
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      child: Text(
+                        'AAA',
+                        style: TextStyle(fontSize: 10.0, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Long Diameter: '),
+                          Text('Short Diameter: '),
+                          Text('Cross Section Area: '),
+                          Text('Slice Index: '),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '53.46 mm',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 154, 43, 16),
+                              ),
+                            ),
+                            Text(
+                              '46.95 mm',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 154, 43, 16),
+                              ),
+                            ),
+                            Text(
+                              '1823.56 mm2',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '74',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      WebViewWidget(controller: _webViewController),
+                      isLoading
+                          ? const Padding(
+                              padding: EdgeInsets.only(top: 150.0),
+                              child: CircularProgressIndicator(),
+                            )
+                          : const Stack(),
+                    ],
+                  ),
+                ),
               ],
             ),
-            trailing: Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 154, 43, 16),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8.0),
-                ),
-              ),
-              //color: Colors.deepOrange,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                child: Text(
-                  'AAA',
-                  style: TextStyle(fontSize: 10.0, color: Colors.white),
-                ),
-              ),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Long Diameter: '),
-                    Text('Short Diameter: '),
-                    Text('Cross Section Area: '),
-                    Text('Slice Index: '),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                ListTile(
+                  title: const Text('Patient ID: 8029643657160423794'),
+                  subtitle: const Row(
                     children: [
-                      Text(
-                        '53.46 mm',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 154, 43, 16),
-                        ),
+                      Text('Age: 54'),
+                      SizedBox(width: 16.0),
+                      Text('Gender: Male'),
+                    ],
+                  ),
+                  trailing: Container(
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 154, 43, 16),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8.0),
                       ),
-                      Text(
-                        '46.95 mm',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 154, 43, 16),
-                        ),
+                    ),
+                    //color: Colors.deepOrange,
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      child: Text(
+                        'AAA',
+                        style: TextStyle(fontSize: 10.0, color: Colors.white),
                       ),
-                      Text(
-                        '1823.56 mm2',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Long Diameter: '),
+                          Text('Short Diameter: '),
+                          Text('Cross Section Area: '),
+                          Text('Slice Index: '),
+                        ],
                       ),
-                      Text(
-                        '74',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: EdgeInsets.only(left: 16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '53.46 mm',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 154, 43, 16),
+                              ),
+                            ),
+                            Text(
+                              '46.95 mm',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 154, 43, 16),
+                              ),
+                            ),
+                            Text(
+                              '1823.56 mm2',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '74',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -131,22 +243,8 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
                 ),
               ],
             ),
-          ),
-          Expanded(
-            child: Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                WebViewWidget(controller: _webViewController),
-                isLoading
-                    ? const Padding(
-                        padding: EdgeInsets.only(top: 150.0),
-                        child: CircularProgressIndicator(),
-                      )
-                    : const Stack(),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
