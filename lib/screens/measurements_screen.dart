@@ -11,74 +11,154 @@ class MeasurementsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Table(
-          border: TableBorder.all(color: Colors.grey),
-          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: [
-            const TableRow(
-              decoration: BoxDecoration(color: Colors.indigo),
+      child: Column(
+        children: [
+          ListTile(
+            title: const Text('Patient ID: 8029643657160423794'),
+            subtitle: const Row(
               children: [
-                TableCell(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('Distance'),
-                  ),
-                ),
-                TableCell(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('Trv Diam (mm)'),
-                  ),
-                ),
-                TableCell(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('AP Diam (mm)'),
-                  ),
-                ),
-                /*TableCell(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('CS Area'),
-                  ),
-                ),*/
+                Text('Age: 54'),
+                SizedBox(width: 16.0),
+                Text('Gender: Male'),
               ],
             ),
-            ...List.generate(
-              _measurements.length,
-              (index) => TableRow(
-                children: [
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(_measurements[index].distance.toString()),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(_measurements[index].trvDiam.toString()),
-                    ),
-                  ),
-                  TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(_measurements[index].apDiam.toString()),
-                    ),
-                  ),
-                  /*TableCell(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('${(index + 90) * (index + 90)} mm2'),
-                    ),
-                  ),*/
-                ],
+            trailing: Container(
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 154, 43, 16),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8.0),
+                ),
+              ),
+              //color: Colors.deepOrange,
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                child: Text(
+                  'AAA',
+                  style: TextStyle(fontSize: 10.0, color: Colors.white),
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Transverse Diameter: '),
+                    Text('AP Diameter: '),
+                    Text('Cross Sectional Area: '),
+                    Text('Slice Index: '),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '53.46 mm',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 154, 43, 16),
+                        ),
+                      ),
+                      Text(
+                        '46.95 mm',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 154, 43, 16),
+                        ),
+                      ),
+                      Text(
+                        '1823.56 mm2',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '74',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Table(
+              border: TableBorder.all(color: Colors.grey),
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              children: [
+                const TableRow(
+                  decoration: BoxDecoration(color: Colors.indigo),
+                  children: [
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Distance'),
+                      ),
+                    ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Trv Diam (mm)'),
+                      ),
+                    ),
+                    TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('AP Diam (mm)'),
+                      ),
+                    ),
+                    /*TableCell(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('CS Area'),
+                      ),
+                    ),*/
+                  ],
+                ),
+                ...List.generate(
+                  _measurements.length,
+                  (index) => TableRow(
+                    children: [
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(_measurements[index].distance.toString()),
+                        ),
+                      ),
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(_measurements[index].trvDiam.toString()),
+                        ),
+                      ),
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(_measurements[index].apDiam.toString()),
+                        ),
+                      ),
+                      /*TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('${(index + 90) * (index + 90)} mm2'),
+                        ),
+                      ),*/
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
