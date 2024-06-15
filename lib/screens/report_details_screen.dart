@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ReportDetailsScreen extends StatefulWidget {
+  const ReportDetailsScreen({super.key});
+
   @override
   _ReportDetailsScreenState createState() => _ReportDetailsScreenState();
 }
@@ -50,30 +52,29 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Report')),
+      appBar: AppBar(title: const Text('Report')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           ListTile(
-            title: Text('Patient ID: 8029643657160423794'),
-            subtitle: Row(
+            title: const Text('Patient ID: 8029643657160423794'),
+            subtitle: const Row(
               children: [
                 Text('Age: 54'),
                 SizedBox(width: 16.0),
-                Text('Gender: Unknown'),
+                Text('Gender: Male'),
               ],
             ),
             trailing: Container(
-              decoration: BoxDecoration(
-                color: Colors.deepOrange,
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 154, 43, 16),
                 borderRadius: BorderRadius.all(
                   Radius.circular(8.0),
                 ),
               ),
               //color: Colors.deepOrange,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Text(
                   'AAA',
                   style: TextStyle(fontSize: 10.0, color: Colors.white),
@@ -81,8 +82,8 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
               children: [
                 Column(
@@ -95,7 +96,7 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                  padding: EdgeInsets.only(left: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -103,14 +104,14 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
                         '53.46 mm',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepOrange,
+                          color: Color.fromARGB(255, 154, 43, 16),
                         ),
                       ),
                       Text(
                         '46.95 mm',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepOrange,
+                          color: Color.fromARGB(255, 154, 43, 16),
                         ),
                       ),
                       Text(
@@ -135,15 +136,13 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
-                Container(
-                  child: WebViewWidget(controller: _webViewController),
-                ),
+                WebViewWidget(controller: _webViewController),
                 isLoading
-                    ? Padding(
-                        padding: const EdgeInsets.only(top: 150.0),
+                    ? const Padding(
+                        padding: EdgeInsets.only(top: 150.0),
                         child: CircularProgressIndicator(),
                       )
-                    : Stack(),
+                    : const Stack(),
               ],
             ),
           ),
@@ -156,13 +155,13 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
 void showProgressDialog(BuildContext context) {
   AlertDialog alert = AlertDialog(
     content: Padding(
-      padding: EdgeInsets.only(top: 8.0),
+      padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         children: [
-          CircularProgressIndicator(),
+          const CircularProgressIndicator(),
           Container(
-            margin: EdgeInsets.only(left: 24.0),
-            child: Text(
+            margin: const EdgeInsets.only(left: 24.0),
+            child: const Text(
               "Loading...",
               style: TextStyle(
                 fontWeight: FontWeight.bold,

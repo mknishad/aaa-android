@@ -2,6 +2,8 @@ import 'package:aaa/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -21,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     'images/mri.png', // Replace with your logo image
                     height: 150,
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
 
                   // Email TextField
                   TextFormField(
@@ -59,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   // Password TextField
                   TextFormField(
@@ -79,12 +80,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   // Login Button
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
+                    /*style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightBlueAccent,
-                    ),
+                    ),*/
                     onPressed: () {
                       /*if (_formKey.currentState!.validate()) {
                         // Process login
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              HomeScreen(), // Replace with your second screen
+                              const HomeScreen(), // Replace with your second screen
                         ),
                         (route) => false,
                       );
@@ -108,9 +109,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),*/
-                    child: Text(
+                    child: const Text(
                       'Login',
-                      style: TextStyle(fontSize: 16.0, color: Colors.white),
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ),
                   //SizedBox(height: 16),
