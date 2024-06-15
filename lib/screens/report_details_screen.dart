@@ -24,9 +24,9 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            CTScanScreen(),
+            const CTScanScreen(),
             MeasurementsScreen(),
           ],
         ),
