@@ -102,9 +102,9 @@ class _ReportDetailsScreenState extends State<ReportDetailsScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Long Diameter: '),
-                          Text('Short Diameter: '),
-                          Text('Cross Section Area: '),
+                          Text('Transverse Diameter: '),
+                          Text('AP Diameter: '),
+                          Text('Cross Sectional Area: '),
                           Text('Slice Index: '),
                         ],
                       ),
